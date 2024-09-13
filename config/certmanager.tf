@@ -77,7 +77,7 @@ resource "kubernetes_manifest" "letsencrypt_prod_issuer" {
             dns01 = {
               cloudDNS = {
                 project = var.project_id
-                hostedZoneName = "berkayh"  # Replace with your CloudDNS zone name
+                hostedZoneName = var.hostedzone_name  # Replace with your CloudDNS zone name
               }
             }
           }

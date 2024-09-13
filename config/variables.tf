@@ -23,3 +23,8 @@ variable "domain" {
   description = "Domain for external DNS and certificates"
   type        = string
 }
+
+variable "hostedzone_name" {
+  description = "Hosted zone name in Google CloudDNS"
+  type        = string
+}
