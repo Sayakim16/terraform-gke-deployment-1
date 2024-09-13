@@ -1,7 +1,7 @@
 # Create the namespace for external-dns if it doesn't already exist
 resource "kubernetes_namespace" "external_dns" {
   metadata {
-    name = "external-dns" 
+    name = "external-dns"
   }
 }
 
