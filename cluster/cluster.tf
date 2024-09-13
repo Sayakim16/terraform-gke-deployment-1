@@ -2,9 +2,11 @@
 
 module "gke" {
   source              = "terraform-google-modules/kubernetes-engine/google"
+  version             = "33.0.2"
   project_id          = var.project_id
   name                = var.gke_cluster_name
   region              = var.region
+  zones               = ["us-central1-a"]
   network             = module.vpc.network_name
   subnetwork          = module.vpc.subnets_names[0]
   kubernetes_version  = var.gke_cluster_version
@@ -19,8 +21,8 @@ module "gke" {
       machine_type = "e2-medium"
       min_count    = 1
       max_count    = 1
-      disk_size_gb = 20
       preemptible  = true
+      disk_size_gb = 20
     },
   ]
 
