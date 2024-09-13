@@ -1,25 +1,26 @@
 # /cluster/cluster.tf
 
 module "gke" {
-  source            = "terraform-google-modules/kubernetes-engine/google"
-  project_id        = var.project_id
-  name              = var.gke_cluster_name
-  region            = var.region
-  network           = module.vpc.network_name
-  subnetwork        = module.vpc.subnets_names[0]
-  kubernetes_version = var.gke_cluster_version
+  source              = "terraform-google-modules/kubernetes-engine/google"
+  project_id          = var.project_id
+  name                = var.gke_cluster_name
+  region              = var.region
+  network             = module.vpc.network_name
+  subnetwork          = module.vpc.subnets_names[0]
+  kubernetes_version  = var.gke_cluster_version
+  deletion_protection = false
 
-  remove_default_node_pool = true   # Prevent GKE from creating the default node pool
-  initial_node_count = 1            # Required when `remove_default_node_pool` is true
+  remove_default_node_pool = true # Prevent GKE from creating the default node pool
+  initial_node_count       = 1    # Required when `remove_default_node_pool` is true
 
   node_pools = [
     {
-      name               = "default-pool"
-      machine_type       = "e2-medium" 
-      min_count          = 1
-      max_count          = 1
-      disk_size_gb       = 30
-      preemptible        = true
+      name         = "default-pool"
+      machine_type = "e2-medium"
+      min_count    = 1
+      max_count    = 1
+      disk_size_gb = 20
+      preemptible  = true
     },
   ]
 
