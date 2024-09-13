@@ -1,0 +1,7 @@
+# terraform.tfvars
+
+project_id       = "project_id"    # Replace with your actual Google Cloud project ID
+region           = "us-central1"            # You can change the region if necessary
+gke_cluster_name = "clustername"         # The name of your GKE cluster
+letsencrypt_email = "youremail" # Email for Let's Encrypt
+domain           = "domain"        # Domain name to attach to the load balancer

@@ -1,0 +1,6 @@
+# terraform.tfvars
+
+project_id       = "your-gcp-project-id"    # Replace with your actual Google Cloud project ID
+region           = "us-central1"            # You can change the region if necessary
+gke_cluster_name = "my-gke-cluster"         # The name of your GKE cluster
+gke_cluster_version = "1.30.3-gke.1639000"     # Specific GKE version, or modify as needed
