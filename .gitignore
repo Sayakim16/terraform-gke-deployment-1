@@ -31,3 +31,7 @@ crash.log
 # Ignore any temporary files
 *.tmp
 *.bak
+
+# Ignore README.md and package.sh
+README.md
+package.sh
