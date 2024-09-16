@@ -32,6 +32,3 @@ crash.log
 *.tmp
 *.bak
 
-# Ignore README.md and package.sh
-README.md
-package.sh
