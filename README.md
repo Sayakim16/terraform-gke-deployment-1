@@ -1,7 +1,7 @@
 # terraform-gke-deployment
-Clone from Github to local, execute bastion.sh file, it create bastion Vm in GCP
+Clone from Github to local, execute bastion.sh file, it creates bastion Vm in GCP
 
-Create zone in GCP if you are going to deploy with your domain name.
+Create hosted zone in GCP if you are going to deploy with your domain name.
 
 From your root path, add host to the file ***vi .ssh/config***
 ```
@@ -23,9 +23,9 @@ gcloud compute ssh NAME_OF_YOUR_MACHINE --zone us-central1-a
 
 Execute cluster folder, create there ***.tfvars*** file , and run terraform init, terraform apply commands
 
-In my case i do not  need config folder , cause i don`t need cert-manager , external dns , i have choosen LB IP.
+In my case i do not  need config folder , cause i don`t need cert-manager , external dns , i had choosen LB IP.
 
-You need connect bastion with gke cluster, for that deploy CLI to your bastion
+You need to connect bastion with gke cluster, for that deploy CLI to your bastion
 ```
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates gnupg curl
@@ -58,10 +58,13 @@ kubectl get svc -n argocd
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 kubectl get svc -n argocd
 ```
+Retrieve password
+```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-Check your remote git repository,if it`s someone`s git folder URL,then remove and add your github account/repository`s URL, before this, open in your github account the folder. Replace to your own path.
+Check your remote git repository,if it is someoneelse git folder URL,then remove and add your github account/repository`s URL, before this, open in your github account the folder. Replace to your own path.
+
 ```
 git remote -v 
 git remote remove origin
