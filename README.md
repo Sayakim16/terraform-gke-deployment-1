@@ -61,4 +61,10 @@ kubectl get svc -n argocd
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-
+Check your remote git repository,if it`s someone`s git folder URL,then remove and add your github account/repository`s URL, before this, open in your github account the folder. Replace to your own path.
+```
+git remote -v 
+git remote remove origin
+git remote add origin https://github.com/YOUR-USERNAME/terraform-gke-deployment.git
+git push -u origin main --force
+```
